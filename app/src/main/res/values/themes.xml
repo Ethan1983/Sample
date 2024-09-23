@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Samples" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Samples.Activity" parent="Theme.AppCompat" />
+</resources>
