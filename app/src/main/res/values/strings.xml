@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Samples</string>
+    <string name="home">Home</string>
+    <string name="displays">Displays</string>
+    <string name="audio_info">Audio Info</string>
+    <string name="media_sessions">Media Sessions</string>
 </resources>

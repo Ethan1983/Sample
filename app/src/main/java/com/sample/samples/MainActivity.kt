@@ -15,11 +15,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sample.samples.screens.AudioInfo
 import com.sample.samples.screens.Displays
+import com.sample.samples.screens.InsetActivity
 import com.sample.samples.screens.MediaSessions
 import com.sample.samples.screens.ViewTranslationActivity
 import com.sample.samples.ui.theme.SamplesTheme
@@ -72,11 +74,6 @@ fun Home(modifier: Modifier = Modifier, navClick: (Screen) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item {
-            Button(onClick = { navClick(Screen.DISPLAYS) }) {
-                Text(text = "Device Displays")
-            }
-        }
-        item {
             val context = LocalContext.current
             val onClickHandler = {
                 context.startActivity(Intent(context, ViewTranslationActivity::class.java))
@@ -85,15 +82,24 @@ fun Home(modifier: Modifier = Modifier, navClick: (Screen) -> Unit) {
                 Text(text = "View translationX")
             }
         }
+
         item {
-            Button(onClick = { navClick(Screen.AUDIO_INFO) }) {
-                Text(text = "Audio Info")
+            val context = LocalContext.current
+            val onClickHandler = {
+                context.startActivity(Intent(context, InsetActivity::class.java))
+            }
+            Button(onClick = onClickHandler) {
+                Text(text = "Window Insets")
             }
         }
-        item {
-            Button(onClick = { navClick(Screen.MEDIA_SESSIONS) }) {
-                Text(text = "Media Sessions")
+
+        Screen.entries.filter { it != Screen.HOME }.forEach { screen ->
+            item {
+                Button(onClick = { navClick(screen) }) {
+                    Text(text = stringResource(screen.titleResId))
+                }
             }
         }
+
     }
 }

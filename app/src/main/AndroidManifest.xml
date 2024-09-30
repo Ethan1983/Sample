@@ -21,6 +21,12 @@
             android:theme="@style/Theme.Samples.Activity" >
         </activity>
         <activity
+            android:name=".screens.InsetActivity"
+            android:exported="false"
+            android:enabled="true"
+            android:theme="@style/Theme.Samples.Activity.NoActionBar" >
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:enabled="true"
             android:exported="true"

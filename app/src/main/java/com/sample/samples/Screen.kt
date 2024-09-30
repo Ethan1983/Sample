@@ -1,8 +1,10 @@
 package com.sample.samples
 
-enum class Screen(val route: String) {
-    HOME("Home"),
-    DISPLAYS("Displays"),
-    AUDIO_INFO("AudioInfo"),
-    MEDIA_SESSIONS("MediaSessions")
+import androidx.annotation.StringRes
+
+enum class Screen(val route: String, @StringRes val titleResId: Int) {
+    HOME("Home", R.string.home),
+    DISPLAYS("Displays", R.string.displays),
+    AUDIO_INFO("AudioInfo", R.string.audio_info),
+    MEDIA_SESSIONS("MediaSessions", R.string.media_sessions)
 }
