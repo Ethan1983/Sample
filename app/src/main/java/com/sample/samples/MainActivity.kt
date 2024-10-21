@@ -22,11 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.sample.samples.screens.AudioInfo
 import com.sample.samples.screens.CounterDebug
 import com.sample.samples.screens.Displays
-import com.sample.samples.screens.InsetActivity
 import com.sample.samples.screens.MediaSessions
-import com.sample.samples.screens.TouchDelegateActivity
-import com.sample.samples.screens.ViewTranslationActivity
-import com.sample.samples.screens.WebViewActivity
 import com.sample.samples.ui.theme.SamplesTheme
 
 class MainActivity : ComponentActivity() {
@@ -51,81 +47,52 @@ fun Main(modifier: Modifier) {
     NavHost(
         navController = navController,
         modifier = modifier,
-        startDestination = Screen.HOME.route
+        startDestination = Home
     ) {
-        composable(Screen.HOME.route) {
+        composable<Home> {
             Home { screen ->
-                navController.navigate(screen.route)
+                navController.navigate(screen)
             }
         }
-        composable(Screen.DISPLAYS.route) {
+        composable<Displays> {
             Displays()
         }
-        composable(Screen.AUDIO_INFO.route) {
+        composable<AudioInfo> {
             AudioInfo()
         }
-        composable(Screen.MEDIA_SESSIONS.route) {
+        composable<MediaSessions> {
             MediaSessions()
         }
-        composable(Screen.RECOMPOSITION.route) {
+        composable<Recomposition> {
             CounterDebug()
         }
     }
 }
 
 @Composable
-fun Home(modifier: Modifier = Modifier, navClick: (Screen) -> Unit) {
+fun Home(modifier: Modifier = Modifier, navClick: (Any) -> Unit) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        item {
-            val context = LocalContext.current
-            val onClickHandler = {
-                context.startActivity(Intent(context, ViewTranslationActivity::class.java))
-            }
-            Button(onClick = onClickHandler) {
-                Text(text = "View translationX")
-            }
-        }
-
-        item {
-            val context = LocalContext.current
-            val onClickHandler = {
-                context.startActivity(Intent(context, InsetActivity::class.java))
-            }
-            Button(onClick = onClickHandler) {
-                Text(text = "Window Insets")
-            }
-        }
-
-        item {
-            val context = LocalContext.current
-            val onClickHandler = {
-                context.startActivity(Intent(context, TouchDelegateActivity::class.java))
-            }
-            Button(onClick = onClickHandler) {
-                Text(text = "Touch Delegate")
-            }
-        }
-
-        item {
-            val context = LocalContext.current
-            val onClickHandler = {
-                context.startActivity(Intent(context, WebViewActivity::class.java))
-            }
-            Button(onClick = onClickHandler) {
-                Text(text = "WebView")
-            }
-        }
-
-        Screen.entries.filter { it != Screen.HOME }.forEach { screen ->
+        ActivityScreen.entries.forEach { activityScreen ->
             item {
-                Button(onClick = { navClick(screen) }) {
-                    Text(text = stringResource(screen.titleResId))
+                val context = LocalContext.current
+                val onClickHandler = {
+                    context.startActivity(Intent(context, activityScreen.activityClass))
+                }
+                Button(onClick = onClickHandler) {
+                    Text(text = activityScreen.title)
                 }
             }
         }
 
+        composeScreens.forEach { (screen, titleResId) ->
+            item {
+                Button(onClick = { navClick(screen) }) {
+                    Text(text = stringResource(titleResId))
+                }
+            }
+        }
     }
 }

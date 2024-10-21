@@ -1,11 +1,39 @@
 package com.sample.samples
 
-import androidx.annotation.StringRes
+import android.app.Activity
+import com.sample.samples.screens.InsetActivity
+import com.sample.samples.screens.MainFeatureScopedDependencyActivity
+import com.sample.samples.screens.TouchDelegateActivity
+import com.sample.samples.screens.ViewTranslationActivity
+import com.sample.samples.screens.WebViewActivity
+import kotlinx.serialization.Serializable
 
-enum class Screen(val route: String, @StringRes val titleResId: Int) {
-    HOME("Home", R.string.home),
-    DISPLAYS("Displays", R.string.displays),
-    AUDIO_INFO("AudioInfo", R.string.audio_info),
-    MEDIA_SESSIONS("MediaSessions", R.string.media_sessions),
-    RECOMPOSITION("Recomposition", R.string.recompositions)
+val composeScreens = mapOf(
+    Displays to R.string.displays,
+    AudioInfo to R.string.audio_info,
+    MediaSessions to R.string.media_sessions,
+    Recomposition to R.string.recompositions
+)
+
+@Serializable
+data object Home
+
+@Serializable
+data object Displays
+
+@Serializable
+data object AudioInfo
+
+@Serializable
+data object MediaSessions
+
+@Serializable
+data object Recomposition
+
+enum class ActivityScreen(val title: String, val activityClass: Class<out Activity>) {
+    VIEW_TRANSLATION_X("View translationX", ViewTranslationActivity::class.java),
+    WINDOW_INSETS("Window Insets", InsetActivity::class.java),
+    TOUCH_DELEGATION("Touch Delegate", TouchDelegateActivity::class.java),
+    WEB_VIEW("WebView", WebViewActivity::class.java),
+    FEATURE_SCOPED_DEPENDENCY("Feature Scoped Hilt Dependency", MainFeatureScopedDependencyActivity::class.java)
 }

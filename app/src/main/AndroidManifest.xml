@@ -7,6 +7,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".SampleApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Samples"
-        tools:targetApi="31">
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="31"
+        tools:ignore="UnusedAttribute">
         <activity
             android:name=".screens.ViewTranslationActivity"
             android:exported="false"
@@ -32,6 +35,16 @@
             android:theme="@style/Theme.Samples.Activity.NoActionBar" />
         <activity
             android:name=".screens.TouchDelegateActivity"
+            android:exported="false"
+            android:enabled="true"
+            android:theme="@style/Theme.Samples.Activity.NoActionBar" />
+        <activity
+            android:name=".screens.MainFeatureScopedDependencyActivity"
+            android:exported="false"
+            android:enabled="true"
+            android:theme="@style/Theme.Samples.Activity.NoActionBar" />
+        <activity
+            android:name=".screens.SubFeatureScopedDependencyActivity"
             android:exported="false"
             android:enabled="true"
             android:theme="@style/Theme.Samples.Activity.NoActionBar" />

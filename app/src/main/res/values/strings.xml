@@ -5,4 +5,5 @@
     <string name="audio_info">Audio Info</string>
     <string name="media_sessions">Media Sessions</string>
     <string name="recompositions">Recompositions</string>
+    <string name="launch_sub_feature">Launch Sub Feature</string>
 </resources>
