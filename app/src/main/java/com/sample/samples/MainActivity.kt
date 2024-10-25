@@ -20,6 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sample.samples.screens.AudioInfo
+import com.sample.samples.screens.CommonFlavorText
 import com.sample.samples.screens.CounterDebug
 import com.sample.samples.screens.Displays
 import com.sample.samples.screens.MediaSessions
@@ -65,6 +66,9 @@ fun Main(modifier: Modifier) {
         }
         composable<Recomposition> {
             CounterDebug()
+        }
+        composable<CommonFlavorOverride> {
+            CommonFlavorText()
         }
     }
 }

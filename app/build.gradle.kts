@@ -23,6 +23,26 @@ android {
         }
     }
 
+    flavorDimensions += "version"
+
+    productFlavors {
+        create("demo") {
+            dimension = "version"
+            applicationIdSuffix = ".demo"
+            versionNameSuffix = "-demo"
+        }
+        create("trial") {
+            dimension = "version"
+            applicationIdSuffix = ".trial"
+            versionNameSuffix = "-trial"
+        }
+        create("full") {
+            dimension = "version"
+            applicationIdSuffix = ".full"
+            versionNameSuffix = "-full"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false

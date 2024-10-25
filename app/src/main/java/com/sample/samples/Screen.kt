@@ -12,7 +12,8 @@ val composeScreens = mapOf(
     Displays to R.string.displays,
     AudioInfo to R.string.audio_info,
     MediaSessions to R.string.media_sessions,
-    Recomposition to R.string.recompositions
+    Recomposition to R.string.recompositions,
+    CommonFlavorOverride to R.string.common_flavor_override
 )
 
 @Serializable
@@ -29,6 +30,9 @@ data object MediaSessions
 
 @Serializable
 data object Recomposition
+
+@Serializable
+data object CommonFlavorOverride
 
 enum class ActivityScreen(val title: String, val activityClass: Class<out Activity>) {
     VIEW_TRANSLATION_X("View translationX", ViewTranslationActivity::class.java),

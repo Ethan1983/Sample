@@ -6,4 +6,5 @@
     <string name="media_sessions">Media Sessions</string>
     <string name="recompositions">Recompositions</string>
     <string name="launch_sub_feature">Launch Sub Feature</string>
+    <string name="common_flavor_override">Flavor Composable Overrides</string>
 </resources>
