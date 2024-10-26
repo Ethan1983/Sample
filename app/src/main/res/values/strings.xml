@@ -7,4 +7,7 @@
     <string name="recompositions">Recompositions</string>
     <string name="launch_sub_feature">Launch Sub Feature</string>
     <string name="common_flavor_override">Flavor Composable Overrides</string>
+    <string name="rotate_animation">Rotate Animation</string>
+    <string name="auto_scroll">Auto Scroll</string>
+    <string name="audio_focus">Audio Focus</string>
 </resources>

@@ -19,11 +19,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.sample.samples.screens.AudioFocus
 import com.sample.samples.screens.AudioInfo
+import com.sample.samples.screens.AutoScrollList
 import com.sample.samples.screens.CommonFlavorText
 import com.sample.samples.screens.CounterDebug
 import com.sample.samples.screens.Displays
 import com.sample.samples.screens.MediaSessions
+import com.sample.samples.screens.RotatingBox
 import com.sample.samples.ui.theme.SamplesTheme
 
 class MainActivity : ComponentActivity() {
@@ -69,6 +72,15 @@ fun Main(modifier: Modifier) {
         }
         composable<CommonFlavorOverride> {
             CommonFlavorText()
+        }
+        composable<RotateAnimation> {
+            RotatingBox()
+        }
+        composable<AutoScrollList> {
+            AutoScrollList()
+        }
+        composable<AudioFocus> {
+            AudioFocus()
         }
     }
 }
