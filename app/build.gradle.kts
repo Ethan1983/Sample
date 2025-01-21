@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.sample.samples"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sample.samples"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -101,6 +101,10 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    implementation(libs.coil.compose)
+    implementation(libs.coil3.coil.network.okhttp)
+    implementation(libs.androidx.core.performance)
+    implementation(libs.core.performance.play.services)
 }
 
 kapt {

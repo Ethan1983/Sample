@@ -16,7 +16,12 @@ val composeScreens = mapOf(
     CommonFlavorOverride to R.string.common_flavor_override,
     RotateAnimation to R.string.rotate_animation,
     AutoScrollList to R.string.auto_scroll,
-    AudioFocus to R.string.audio_focus
+    AudioFocus to R.string.audio_focus,
+    AndroidView to R.string.android_view,
+    Coil to R.string.coil,
+    ForegroundService to R.string.foreground_service,
+    MediaPerformanceClass to R.string.media_performance_class,
+    DolbyVision to R.string.dolby_vision
 )
 
 @Serializable
@@ -45,6 +50,21 @@ data object AutoScrollList
 
 @Serializable
 data object AudioFocus
+
+@Serializable
+data object AndroidView
+
+@Serializable
+data object Coil
+
+@Serializable
+data object ForegroundService
+
+@Serializable
+data object MediaPerformanceClass
+
+@Serializable
+data object DolbyVision
 
 enum class ActivityScreen(val title: String, val activityClass: Class<out Activity>) {
     VIEW_TRANSLATION_X("View translationX", ViewTranslationActivity::class.java),

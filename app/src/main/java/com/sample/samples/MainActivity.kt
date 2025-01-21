@@ -5,8 +5,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -22,11 +24,16 @@ import androidx.navigation.compose.rememberNavController
 import com.sample.samples.screens.AudioFocus
 import com.sample.samples.screens.AudioInfo
 import com.sample.samples.screens.AutoScrollList
+import com.sample.samples.screens.CoilImage
 import com.sample.samples.screens.CommonFlavorText
 import com.sample.samples.screens.CounterDebug
 import com.sample.samples.screens.Displays
+import com.sample.samples.screens.DolbyVisionSupport
+import com.sample.samples.screens.ForegroundServiceLauncher
 import com.sample.samples.screens.MediaSessions
+import com.sample.samples.screens.PerformanceClass
 import com.sample.samples.screens.RotatingBox
+import com.sample.samples.screens.TextComposable
 import com.sample.samples.ui.theme.SamplesTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +43,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SamplesTheme {
-                Scaffold { innerPadding ->
+                Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { innerPadding ->
                     Main(Modifier.padding(innerPadding))
                 }
             }
@@ -81,6 +88,21 @@ fun Main(modifier: Modifier) {
         }
         composable<AudioFocus> {
             AudioFocus()
+        }
+        composable<AndroidView> {
+            TextComposable()
+        }
+        composable<Coil> {
+            CoilImage()
+        }
+        composable<ForegroundService> {
+            ForegroundServiceLauncher()
+        }
+        composable<MediaPerformanceClass> {
+            PerformanceClass()
+        }
+        composable<DolbyVision> {
+            DolbyVisionSupport()
         }
     }
 }

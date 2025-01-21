@@ -10,4 +10,9 @@
     <string name="rotate_animation">Rotate Animation</string>
     <string name="auto_scroll">Auto Scroll</string>
     <string name="audio_focus">Audio Focus</string>
+    <string name="android_view">Android View Recompositions</string>
+    <string name="coil">Coil</string>
+    <string name="foreground_service">Foreground Service</string>
+    <string name="media_performance_class">Media Performance Class</string>
+    <string name="dolby_vision">Dolby Vision</string>
 </resources>

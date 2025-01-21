@@ -1,5 +1,9 @@
 [versions]
 agp = "8.7.1"
+coilCompose = "3.0.4"
+coilNetworkOkhttp = "3.0.4"
+corePerformance = "1.0.0"
+corePerformancePlayServices = "1.0.0"
 hiltAndroid = "2.46"
 javapoet = "1.13.0"
 kotlin = "1.9.21"
@@ -23,9 +27,13 @@ ksp = "1.9.21-1.0.16"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-performance = { module = "androidx.core:core-performance", version.ref = "corePerformance" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+coil3-coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilNetworkOkhttp" }
+core-performance-play-services = { module = "androidx.core:core-performance-play-services", version.ref = "corePerformancePlayServices" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 javapoet = { module = "com.squareup:javapoet", version.ref = "javapoet" }
